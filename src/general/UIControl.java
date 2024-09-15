@@ -1,6 +1,6 @@
 package general;
 
-public class UIControl extends BaseUIControl{
+public abstract class UIControl extends BaseUIControl{
 
     public void enable() {
         System.out.println("enabled.");
@@ -13,4 +13,6 @@ public class UIControl extends BaseUIControl{
     public void setPosition() {
         System.out.println("position set.");
     }
+
+    public abstract void draw();
 }
