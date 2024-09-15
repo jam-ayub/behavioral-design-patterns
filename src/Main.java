@@ -1,14 +1,20 @@
-import general.CheckBox;
-import general.TexBox;
-import general.UIControl;
+import memento.Editor;
+import memento.History;
 
 public class Main {
     public static void main(String[] args) {
-        drawUIControl(new TexBox());
-        drawUIControl(new CheckBox());
-    }
+        var editor = new Editor();
+        var history = new History();
 
-    public static void drawUIControl(UIControl uiControl) {
-        uiControl.draw();
+        editor.setContent("aaa");
+        history.push(editor.createState());
+
+        editor.setContent("bbb");
+        history.push(editor.createState());
+
+        editor.setContent("ccc");
+        editor.restore(history.pop());
+
+        System.out.println(editor.getContent());
     }
 }
