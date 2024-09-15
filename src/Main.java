@@ -1,8 +1,9 @@
-import general.MailService;
+import general.TexBox;
 
 public class Main {
     public static void main(String[] args) {
-        var mailService = new MailService();
-        mailService.sendEmail();
+        var textBox = new TexBox();
+        textBox.enable();
+        textBox.display();
     }
 }
