@@ -1,15 +1,11 @@
-import general.TaxCalculator;
-import general.TaxCalculator2019;
+import general.Account;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        TaxCalculator calculator = getCalculator();
-        calculator.calculatTax();
-    }
+        Account account = new Account();
+        account.deposit(10);
+        account.withdraw(5);
 
-    public static TaxCalculator getCalculator() {
-        return new TaxCalculator2019();
+        System.out.println(account.getBalance());
     }
 }
