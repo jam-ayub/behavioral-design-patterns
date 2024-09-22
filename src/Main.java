@@ -1,8 +1,15 @@
-import template.TransferMoneyTask;
+import command.AddCustomerCommand;
+import command.CustomerService;
+import command.framwork.Button;
 
 public class Main {
     public static void main(String[] args) {
-        var transferMoneyTask = new TransferMoneyTask();
-        transferMoneyTask.execute();
+        var customerService = new CustomerService();
+
+        var addCustomerCommand = new AddCustomerCommand(customerService);
+
+        var button = new Button(addCustomerCommand);
+
+        button.click();
     }
 }
