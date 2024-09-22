@@ -1,15 +1,14 @@
-import command.AddCustomerCommand;
-import command.CustomerService;
-import command.framwork.Button;
+import command.*;
 
 public class Main {
     public static void main(String[] args) {
-        var customerService = new CustomerService();
+        var compositeCommand = new CompositeCommand();
+        var resize = new ResizeCommand();
+        var blackAndWhite = new BlackAndWhiteCommand();
 
-        var addCustomerCommand = new AddCustomerCommand(customerService);
+        compositeCommand.addCommand(resize);
+        compositeCommand.addCommand(blackAndWhite);
 
-        var button = new Button(addCustomerCommand);
-
-        button.click();
+        compositeCommand.execute();
     }
 }
