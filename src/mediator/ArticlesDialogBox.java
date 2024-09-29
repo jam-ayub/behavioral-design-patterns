@@ -1,16 +1,13 @@
 package mediator;
 
-public class ArticlesDialogBox extends DialogBox {
-    private ListBox articlesListBox = new ListBox(this);
-    private TextBox titleTextBox = new TextBox(this);
-    private Button saveButton = new Button(this);
+public class ArticlesDialogBox {
+    private ListBox articlesListBox = new ListBox();
+    private TextBox titleTextBox = new TextBox();
+    private Button saveButton = new Button();
 
-    @Override
-    public void changed(UIControl uiControl) {
-        if (uiControl == articlesListBox)
-            articleSelected();
-        else if (uiControl == titleTextBox)
-            titleChanged();
+    public ArticlesDialogBox () {
+        articlesListBox.addEventHandler(this::articleSelected);
+        titleTextBox.addEventHandler(this::titleChanged);
     }
 
     public void simulateUserInteraction() {
