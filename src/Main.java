@@ -1,15 +1,12 @@
-import chainOfResponsibility.*;
+import visitor.*;
 
 public class Main {
     public static void main(String[] args) {
-        var request = new HttpRequest("admin", "1234");
+        var document = new HtmlDocument();
+        document.add(new HeadingNode());
+        document.add(new AnchorNode());
 
-        var compressor = new Compressor(null);
-        var logger = new Logger(compressor);
-        var authentication = new Authenticator(logger);
-
-        var webServer = new WebServer(authentication);
-
-        webServer.handle(request);
+        document.execute(new HighlightOperation());
+        document.execute(new PlainTextOperation());
     }
 }
